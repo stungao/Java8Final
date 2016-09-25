@@ -27,9 +27,13 @@ public class Calculator {
           Set<String> keys = student.gpa.subjectGpa.keySet();
           
           for (String subjName : keys) {
-                System.out.println("Enter PGA for subject " + subjName);
+                System.out.println("Enter GPA for subject " + subjName);
                 int gpa = new Scanner(System.in).nextInt();
-                student.gpa.subjectGpa.put(subjName, gpa);
+                for(;gpa>4 || gpa<0;){
+                    System.out.println("your GPA is incorrect, Please enter GPA again " + subjName);
+                    gpa = new Scanner(System.in).nextInt();
+                }
+                    student.gpa.subjectGpa.put(subjName, gpa);             
             }   
           
           studentMap.put(student.name, student);
